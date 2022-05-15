@@ -1,14 +1,41 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { render } from 'react-dom';
 import './style.css';
 
+import Animal from './components/Animal'
+import AnimalList from './components/AnimalList';
+import AnimalDetail from './components/AnimalDetail';
+
 const App = () => {
+
+  const [animal, setAnimal] = useState({});
+
+  useEffect(              
+		() => {
+			fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
+			.then(response => response.json())
+			.then(data => { 
+        //console.log(data)
+				setAnimal(data)
+		})
+		},
+		[]
+	);
+
+
   return (
     <>
       <h1>Zvířátka v ZOO</h1>
 
       <div className="container">
-        {/* zde budou jednotlivé komponenty */}
+
+        <AnimalList>
+          <Animal />
+        </AnimalList>
+        
+
+        <AnimalDetail />
+
       </div>
     </>
   );
