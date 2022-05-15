@@ -8,7 +8,7 @@ import AnimalDetail from './components/AnimalDetail';
 
 const App = () => {
 
-  const [animal, setAnimal] = useState(null);
+  const [animal, setAnimal] = useState({});
 
   useEffect(() => {
 			fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
@@ -22,6 +22,26 @@ const App = () => {
       <h1>Zvířátka v ZOO</h1>
 
       <div className="container">
+
+
+      <ul>
+                {animal.map(zvirata => (
+                    <div
+                    key={zvirata.id}
+                    nazev={zvirata.nazev}
+                    nazevLatinsky={zvirata.nazevLatinsky}
+                    domovina={zvirata.domovina}
+                    biotop={zvirata.biotop}
+                    potrava={zvirata.potrava}
+                    velikost={zvirata.velikost}
+                    popis={zvirata.popis}
+                    foto={zvirata.foto}
+                    />
+                  ))};
+      </ul>
+
+
+
 
         <AnimalList>
           <Animal />
