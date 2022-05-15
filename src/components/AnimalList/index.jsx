@@ -4,14 +4,18 @@ import Animal from '../Animal'
 //přes onclick zavolam funkci, a přes to změnim id
 
 
-const AnimalList = ({animals}) => {
-    return (
+const AnimalList = ({animals, onAnimalClick}) => {
+    
+
+  return (
       
-      <div class="animal-list">
+      <div className="animal-list">
 
         {animals.map(zvire => (
                     <Animal
+                    onAnimalClick={onAnimalClick}
                     key={zvire.id}
+                    id={zvire.id}
                     nazev={zvire.nazev}
                     nazevLatinsky={zvire.nazevLatinsky}
                     domovina={zvire.domovina}

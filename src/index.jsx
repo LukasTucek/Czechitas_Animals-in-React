@@ -8,16 +8,32 @@ import AnimalDetail from './components/AnimalDetail';
 const App = () => {
 
   const [animals, setAnimals] = useState([]);
+  const [animalDetail, setAnimalDetail] = useState({});
+
+
+
+  //parametr bude Id
+  //dle ID si najde v seznamu animals zvíře
+
+  const changeCurrentAnimal = (id) => {
+    const selectedAnimal = animals.find((animal) => {
+
+      return id === animal.id
+    });
+
+    setAnimalDetail(selectedAnimal)
+  }
+
+
 
   useEffect(() => {
 			fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
 			.then(response => response.json())
-			.then(data => {setAnimals(data.zvirata)
-        console.log(data)
-    
+			.then(data => {
+        setAnimals(data.zvirata)
+        setAnimalDetail(data.zvirata[0])
       })
 		},[]);
-
 
 
   return (
@@ -26,9 +42,9 @@ const App = () => {
 
       <div className="container">
 
-        <AnimalList animals={animals} />
+        <AnimalList animals={animals} onAnimalClick={changeCurrentAnimal}/>
     
-        <AnimalDetail />
+        <AnimalDetail animal={animalDetail} />
 
       </div>
     </>
