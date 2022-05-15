@@ -31,7 +31,7 @@ const App = () => {
 			.then(response => response.json())
 			.then(data => {
         setAnimals(data.zvirata)
-        setAnimalDetail(data.zvirata[0])
+        setAnimalDetail(data.zvirata[0]) //defaultní nastavení - zobrazí se první zvíře
       })
 		},[]);
 
