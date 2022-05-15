@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const AnimalList = ({zvirata}) => {
+const AnimalList = () => {
     return (
       <>
       {
-      zvirata.map(zvirata => <Animal
+      zvirata.map(Animal => <Animal
         key={zvirata.id}
         nazev={zvirata.nazev}
         nazevLatinsky={zvirata.nazevLatinsky}

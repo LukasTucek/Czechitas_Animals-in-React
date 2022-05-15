@@ -8,19 +8,13 @@ import AnimalDetail from './components/AnimalDetail';
 
 const App = () => {
 
-  const [animal, setAnimal] = useState({});
+  const [animal, setAnimal] = useState(null);
 
-  useEffect(              
-		() => {
+  useEffect(() => {
 			fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
 			.then(response => response.json())
-			.then(data => { 
-        //console.log(data)
-				setAnimal(data)
-		})
-		},
-		[]
-	);
+			.then(data => setAnimal(data))
+		},[]);
 
 
   return (
