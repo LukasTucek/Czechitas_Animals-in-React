@@ -1,14 +1,14 @@
 import React from 'react';
 import './style.css';
 
-const AnimalDetail = () => {
+const AnimalDetail = ({foto}) => {
     return (
       
       <div className="detail">
 			<div className="detail__content">
 
 				<div className="detail__header">
-					<img className="detail__image" src="" alt="xxx" />
+					<img className="detail__image" src={foto} alt="xxx" />
 					<div className="detail__title">
 						<h2 className="detail__name"><span>Slon africký</span></h2>
 						<div className="detail__latin"><span>Loxodonta africana</span></div>
